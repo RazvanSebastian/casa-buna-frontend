@@ -1,1 +1,74 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+@use 'bootstrap/scss/bootstrap-grid';
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
 /* You can add global styles to this file, and also import other style files */
+
+/* Target the Snackbar container and its internal surface wrapper */
+/* Lighter Success Snackbar */
+.mat-mdc-snack-bar-container.success-snackbar {
+  .mdc-snackbar__surface {
+    background-color: #e8f5e9 !important; /* Soft light green */
+    color: #2e7d32 !important; /* Dark green text for contrast */
+  }
+
+  .mat-mdc-snack-bar-label {
+    color: #2e7d32 !important;
+  }
+
+  /* If you ever add an action button back */
+  .mat-mdc-button {
+    color: #2e7d32 !important;
+  }
+}
+
+/* Lighter Error Snackbar */
+.mat-mdc-snack-bar-container.error-snackbar {
+  .mdc-snackbar__surface {
+    background-color: #ffebee !important; /* Soft light red/pink */
+    color: #c62828 !important; /* Dark red text for contrast */
+  }
+
+  .mat-mdc-snack-bar-label {
+    color: #c62828 !important;
+  }
+
+  .mat-mdc-button {
+    color: #c62828 !important;
+  }
+}

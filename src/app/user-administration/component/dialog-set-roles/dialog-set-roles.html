@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Seteaza noi roluri</h2>
+<mat-dialog-content>
+  @if (allRoles(); as allRoles) {
+    <form [formGroup]="form">
+      <mat-selection-list formControlName="roles" [compareWith]="compareRoles">
+        @for (role of allRoles; track role.name; let i = $index) {
+          <mat-list-option [value]="role">
+            {{ role.name }}
+          </mat-list-option>
+        }
+      </mat-selection-list>
+    </form>
+  }
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close>Inchide</button>
+  <button matButton mat-dialog-close cdkFocusInitial (click)="save()">Salveaza</button>
+</mat-dialog-actions>

@@ -1,0 +1,42 @@
+@if (usersPage(); as usersPage) {
+  <table mat-table [dataSource]="usersPage.content">
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Prenume</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Nume</th>
+      <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="roles">
+      <th mat-header-cell *matHeaderCellDef>Roluri</th>
+      <td mat-cell *matCellDef="let element">
+        @for (role of element.roles; track role.name) {
+          <span>{{ role.name }} </span>
+        }
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Seteaza rol</th>
+      <td mat-cell *matCellDef="let element">
+        <button matIconButton (click)="openSetRolesDialog(element)">
+          <mat-icon>person</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="usersPage.page.totalElements"
+    [pageIndex]="usersPage.page.number"
+    [pageSize]="usersPage.page.size"
+    aria-label="Selecteaza pagina"
+  >
+  </mat-paginator>
+}
