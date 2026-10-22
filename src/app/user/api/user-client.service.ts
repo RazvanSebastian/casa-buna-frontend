@@ -20,4 +20,8 @@ export class UserClientService {
       params: { page, email },
     });
   }
+
+  logout() {
+    return this.http.get(`${this.baseUrl}/logout`);
+  }
 }
