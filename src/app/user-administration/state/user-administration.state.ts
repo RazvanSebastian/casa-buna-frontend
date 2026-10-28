@@ -4,8 +4,9 @@ import { catchError, of, tap, throwError } from 'rxjs';
 import { PageModel } from '../../global/model/page.model';
 import { UserModel } from '../../global/model/user/user.model';
 import { NotificationService } from '../../global/notification/notification.service';
+import { UserStateAction } from '../../user/state/user.action';
 import { UserAdministrationClientService } from '../api/user-administration-client.service';
-import { UserAdministrationActions } from './user-administration.action';
+import { UserAdministrationStateAction } from './user-administration.action';
 import { UserAdministrationStateModel } from './user-administration.model';
 
 const defaults: UserAdministrationStateModel = {
@@ -32,10 +33,10 @@ export class UserAdministrationState {
     (state: UserAdministrationStateModel) => state.allRoles,
   );
 
-  @Action(UserAdministrationActions.GetAllUsers)
+  @Action(UserAdministrationStateAction.GetAllUsers)
   getAllUsers(
     ctx: StateContext<UserAdministrationStateModel>,
-    action: UserAdministrationActions.GetAllUsers,
+    action: UserAdministrationStateAction.GetAllUsers,
   ) {
     return this.userAdministrationClientService.getAllUsers(action.page, action.email).pipe(
       tap((usersPage) => {
@@ -48,7 +49,7 @@ export class UserAdministrationState {
     );
   }
 
-  @Action(UserAdministrationActions.GetAllRoles)
+  @Action(UserAdministrationStateAction.GetAllRoles)
   getAllRoles(ctx: StateContext<UserAdministrationStateModel>) {
     const allRoles = ctx.getState().allRoles;
     if (allRoles) {
@@ -67,10 +68,10 @@ export class UserAdministrationState {
     }
   }
 
-  @Action(UserAdministrationActions.SetUserRoles)
+  @Action(UserAdministrationStateAction.SetUserRoles)
   setUserRoles(
     ctx: StateContext<UserAdministrationStateModel>,
-    action: UserAdministrationActions.SetUserRoles,
+    action: UserAdministrationStateAction.SetUserRoles,
   ) {
     return this.userAdministrationClientService.setUserRoles(action.id, action.roles).pipe(
       tap(() => {
@@ -93,5 +94,10 @@ export class UserAdministrationState {
         return throwError(() => err);
       }),
     );
+  }
+
+  @Action(UserStateAction.LogoutUser)
+  logoutUser(ctx: StateContext<UserAdministrationStateModel>) {
+    ctx.patchState(defaults);
   }
 }

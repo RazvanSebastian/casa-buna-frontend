@@ -1,0 +1,127 @@
+<h3>Nu ai cerere de voluntariat</h3>
+<form class="d-flex flex-column gap-3">
+  <mat-form-field>
+    <mat-label>Spune-ne ceva despre tine</mat-label>
+    <textarea matInput [formField]="form.selfDescription"></textarea>
+  </mat-form-field>
+  <!-- Learning -->
+  <fieldset class="d-flex flex-column gap-2">
+    <legend>
+      Dacă vrei să te implici în EDUCAȚIA copiilor, alege din activitățile de mai jos:
+    </legend>
+    <mat-checkbox [formField]="form.educationalActivities.offlineLearning">
+      Lectii offline
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalActivities.onlineLearning">
+      Lectii online
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalActivities.practicalTraining">
+      Ateliere
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalActivities.others">
+      <mat-form-field>
+        <mat-label>Alte activitati</mat-label>
+        <input matInput [formField]="form.educationalActivities.othersDescription" />
+      </mat-form-field>
+    </mat-checkbox>
+  </fieldset>
+  <!-- Education -->
+  <fieldset class="d-flex flex-column gap-2">
+    <legend>La ce nivel de educație ai copii?</legend>
+    <p>
+      La Casa Buna lucram in principal pe romana si matematica la nivelul copilului, indiferent de
+      clasa in care se afla
+    </p>
+    <mat-checkbox [formField]="form.educationalLevel.kindergarten"> Gradinita </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalLevel.primary"> Ciclu primar </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalLevel.secondary"> Ciclu gimnazial </mat-checkbox>
+    <mat-checkbox [formField]="form.educationalLevel.highSchool"> Liceu </mat-checkbox>
+  </fieldset>
+  <!-- Health -->
+  <fieldset class="d-flex flex-column gap-2">
+    <legend>
+      Dacă vrei să te implici in SANATATEA copiilor, alege din activitățile de mai jos:
+    </legend>
+    <mat-checkbox [formField]="form.healthActivities.sportActivities">
+      Activitati sportive
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.healthActivities.medicalSupport">
+      Asistenta medicala
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.healthActivities.others">
+      <mat-form-field>
+        <mat-label>Alte activitati</mat-label>
+        <input matInput [formField]="form.healthActivities.othersDescription" />
+      </mat-form-field>
+    </mat-checkbox>
+  </fieldset>
+  <!-- IT Support -->
+  <fieldset class="d-flex flex-column gap-2">
+    <legend>Dacă vrei să devii un IT-ist al Casei Bune, alege din activitățile de mai jos:</legend>
+    <mat-checkbox [formField]="form.itSupportActivities.repairingComputers">
+      Reparat calculatoare
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.itSupportActivities.childrenSupport">
+      Asistenta copiilor
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.itSupportActivities.siteVisits">
+      Vizite in comunitati
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.itSupportActivities.others">
+      <mat-form-field>
+        <mat-label>Alte activitati</mat-label>
+        <input matInput [formField]="form.itSupportActivities.othersDescription" />
+      </mat-form-field>
+    </mat-checkbox>
+  </fieldset>
+  <!-- Logistic -->
+  <fieldset class="d-flex flex-column gap-2">
+    <legend>
+      Daca vrei să dai o mână de ajutor pe partea LOGISTICA alege din activitățile de mai jos:
+    </legend>
+    <mat-checkbox [formField]="form.logisticActivities.deposit">
+      Ridicat, transportat si sortat donatii
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.logisticActivities.kidsDriver">
+      Sofer activitati copii
+    </mat-checkbox>
+    <mat-checkbox [formField]="form.logisticActivities.others">
+      <mat-form-field>
+        <mat-label>Alte activitati</mat-label>
+        <input matInput [formField]="form.logisticActivities.othersDescription" />
+      </mat-form-field>
+    </mat-checkbox>
+  </fieldset>
+  <mat-form-field>
+    <mat-label>
+      Folosește acest spațiu daca activitatea in care vrei să te implici nu se regăsește în
+      întrebările de mai sus:
+    </mat-label>
+    <textarea matInput [formField]="form.otherActivities"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Varsta ta </mat-label>
+    <input matInput type="number" [formField]="form.age" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Ocupatia ta </mat-label>
+    <input matInput [formField]="form.occupation" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Prenume</mat-label>
+    <input matInput [formField]="form.firstName" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nume</mat-label>
+    <input matInput [formField]="form.lastName" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Telefon</mat-label>
+    <input matInput type="tel" [formField]="form.phone" />
+  </mat-form-field>
+</form>
+<div>
+  <button matButton="elevated" [disabled]="form().invalid()" (click)="onSubmit()">Trimite</button>
+</div>

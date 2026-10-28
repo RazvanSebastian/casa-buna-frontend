@@ -1,0 +1,76 @@
+<h3>Ai deja o cerere de voluntariat în desfășurare</h3>
+<div class="d-flex flex-column gap-2">
+  <div><strong>Prenume:</strong> {{ request().firstName }}</div>
+  <div><strong>Nume:</strong> {{ request().lastName }}</div>
+  <div><strong>Telefon:</strong> {{ request().phone }}</div>
+  <div><strong>Vârsta:</strong> {{ request().age }}</div>
+  <div><strong>Ocupația:</strong> {{ request().occupation }}</div>
+  <div><strong>Spune-ne ceva despre tine:</strong> {{ request().selfDescription }}</div>
+
+  <div>
+    <strong>Educație:</strong>
+    @if (request().educationActivities.length) {
+      <ul>
+        @for (item of request().educationActivities; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      -
+    }
+  </div>
+
+  <div>
+    <strong>Nivel educațional:</strong>
+    @if (request().educationLevels.length) {
+      <ul>
+        @for (item of request().educationLevels; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      -
+    }
+  </div>
+
+  <div>
+    <strong>Sănătate:</strong>
+    @if (request().healthActivities.length) {
+      <ul>
+        @for (item of request().healthActivities; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      -
+    }
+  </div>
+
+  <div>
+    <strong>IT Support:</strong>
+    @if (request().itSupportActivities.length) {
+      <ul>
+        @for (item of request().itSupportActivities; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      -
+    }
+  </div>
+
+  <div>
+    <strong>Logistică:</strong>
+    @if (request().logisticActivities.length) {
+      <ul>
+        @for (item of request().logisticActivities; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      -
+    }
+  </div>
+
+  <div><strong>Alte activități:</strong> {{ request().otherActivities || '-' }}</div>
+</div>

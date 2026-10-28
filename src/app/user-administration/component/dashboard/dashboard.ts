@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { Store } from '@ngxs/store';
 import { UserModel } from '../../../global/model/user/user.model';
-import { UserAdministrationActions } from '../../state/user-administration.action';
+import { UserAdministrationStateAction } from '../../state/user-administration.action';
 import { UserAdministrationState } from '../../state/user-administration.state';
 import { DialogSetRolesComponent } from '../dialog-set-roles/dialog-set-roles';
 
@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   protected readonly usersPage = this.store.selectSignal(UserAdministrationState.getUsersPage);
 
   ngOnInit(): void {
-    this.store.dispatch(new UserAdministrationActions.GetAllUsers(1));
+    this.store.dispatch(new UserAdministrationStateAction.GetAllUsers(1));
   }
 
   protected openSetRolesDialog(element: UserModel) {

@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { Store } from '@ngxs/store';
 import { RoleModel, UserModel } from '../../../global/model/user/user.model';
-import { UserAdministrationActions } from '../../state/user-administration.action';
+import { UserAdministrationStateAction } from '../../state/user-administration.action';
 import { UserAdministrationState } from '../../state/user-administration.state';
 
 @Component({
@@ -29,12 +29,12 @@ export class DialogSetRolesComponent implements OnInit {
   protected compareRoles = (role1: RoleModel, role2: RoleModel) => role1?.name === role2?.name;
 
   ngOnInit(): void {
-    this.store.dispatch(new UserAdministrationActions.GetAllRoles());
+    this.store.dispatch(new UserAdministrationStateAction.GetAllRoles());
   }
 
   save() {
     this.store.dispatch(
-      new UserAdministrationActions.SetUserRoles(this.data.id, this.form.value.roles ?? []),
+      new UserAdministrationStateAction.SetUserRoles(this.data.id, this.form.value.roles ?? []),
     );
   }
 }

@@ -1,6 +1,6 @@
 const USER_STATE = '[UserState]';
 
-export namespace UserActions {
+export namespace UserStateAction {
   export class GetCurrentUser {
     static readonly type = `${USER_STATE} Get Current User`;
   }

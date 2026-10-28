@@ -1,0 +1,5 @@
+@if (request(); as request) {
+  <app-request-preview [request]="request"></app-request-preview>
+} @else {
+  <app-request-form></app-request-form>
+}

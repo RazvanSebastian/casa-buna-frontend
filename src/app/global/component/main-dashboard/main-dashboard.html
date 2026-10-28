@@ -1,4 +1,4 @@
-<nav class="row p-2">
+<nav class="row p-2 m-0">
   <div class="col-6">
     <h3>Casa buna</h3>
   </div>
@@ -9,14 +9,18 @@
   </div>
 </nav>
 <mat-drawer-container>
-  <mat-drawer mode="side" opened>
-    <mat-nav-list>
-      <a mat-list-item href="" [routerLink]="'user-administration'" [routerLinkActive]="'active'">
-        Administratie
-      </a>
-    </mat-nav-list>
-  </mat-drawer>
+  @if (isOnboarded()) {
+    <mat-drawer mode="side" opened>
+      <mat-nav-list>
+        <a mat-list-item href="" [routerLink]="'user-administration'" [routerLinkActive]="'active'">
+          Administratie
+        </a>
+      </mat-nav-list>
+    </mat-drawer>
+  }
   <mat-drawer-content>
-    <router-outlet></router-outlet>
+    <div class="p-4">
+      <router-outlet></router-outlet>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>

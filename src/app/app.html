@@ -1,5 +1,5 @@
 @if (isAuthenticationCompleted()) {
-  @if (isAuthenticationSuccess()) {
+  @if (user()) {
     <app-main-dashboard />
   } @else {
     <app-login />

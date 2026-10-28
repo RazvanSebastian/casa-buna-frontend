@@ -2,7 +2,7 @@ import { RoleModel } from '../../global/model/user/user.model';
 
 const USER_STATE = '[UserState]';
 
-export namespace UserAdministrationActions {
+export namespace UserAdministrationStateAction {
   export class GetAllUsers {
     static readonly type = `${USER_STATE} Get All Users`;
     constructor(
