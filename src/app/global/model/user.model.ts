@@ -1,8 +1,11 @@
-export interface UserModel {
+export interface UserDetailsMode {
   id: number;
   email: string;
   firstName: string;
   lastName: string;
+}
+
+export interface UserModel extends UserDetailsMode {
   roles: RoleModel[];
 }
 

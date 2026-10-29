@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { VolunteerRequestModel } from '../../../api/volunteer-request-client.model';
+import { VolunteerRequestModel } from '../../../../global/model/volunteer-request.model';
 
 @Component({
   imports: [],

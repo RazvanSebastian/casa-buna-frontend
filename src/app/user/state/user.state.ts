@@ -20,6 +20,8 @@ export class UserState {
 
   static getUser = createSelector([UserState], (state: UserStateModel) => state.user);
 
+  static getRoles = createSelector([UserState], (state: UserStateModel) => state.user?.roles);
+
   @Action(UserStateAction.GetCurrentUser)
   getCurrentUser(ctx: StateContext<UserStateModel>) {
     return this.userClientService.getCurrentUser().pipe(

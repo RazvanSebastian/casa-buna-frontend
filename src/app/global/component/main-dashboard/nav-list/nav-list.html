@@ -1,0 +1,38 @@
+<mat-tree #tree [dataSource]="visibleNavList" [childrenAccessor]="childrenAccessor">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <button
+      mat-button
+      [routerLink]="node.route"
+      routerLinkActive="active"
+      [attr.aria-label]="node.name"
+      class="nav-item"
+    >
+      @if (node.icon) {
+        <mat-icon>{{ node.icon }}</mat-icon>
+      }
+      <span>{{ node.name }}</span>
+    </button>
+  </mat-tree-node>
+
+  <mat-tree-node
+    *matTreeNodeDef="let node; when: hasChild"
+    matTreeNodePadding
+    matTreeNodeToggle
+    class="nav-item"
+  >
+    <button
+      mat-button
+      matTreeNodeToggle
+      [attr.aria-label]="'Toggle ' + node.name"
+      class="nav-item-button"
+    >
+      @if (node.icon) {
+        <mat-icon>{{ node.icon }}</mat-icon>
+      }
+      <span>{{ node.name }}</span>
+      <mat-icon class="expand-icon">
+        {{ tree.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+      </mat-icon>
+    </button>
+  </mat-tree-node>
+</mat-tree>

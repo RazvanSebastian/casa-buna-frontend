@@ -5,9 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { Store } from '@ngxs/store';
-import { RoleModel, UserModel } from '../../../global/model/user/user.model';
-import { UserAdministrationStateAction } from '../../state/user-administration.action';
-import { UserAdministrationState } from '../../state/user-administration.state';
+import { RoleModel, UserModel } from '../../../../global/model/user.model';
+import { UserAdministrationStateAction } from '../../../state/user-administration/user-administration.action';
+import { UserAdministrationState } from '../../../state/user-administration/user-administration.state';
 
 @Component({
   imports: [CommonModule, ReactiveFormsModule, MatDialogModule, MatListModule, MatButtonModule],

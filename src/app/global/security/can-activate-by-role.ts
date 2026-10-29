@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { Store } from '@ngxs/store';
+import { filter, map } from 'rxjs';
 import { UserState } from '../../user/state/user.state';
 
 export const canActivateByRoleGuard: CanActivateFn = (route) => {
@@ -12,7 +13,8 @@ export const canActivateByRoleGuard: CanActivateFn = (route) => {
     return true;
   }
 
-  return (store.selectSnapshot(UserState.getUser)?.roles ?? [])
-    .map((role) => role.name)
-    .some((role) => allowedRoles.includes(role));
+  return store.select(UserState.getRoles).pipe(
+    filter((roles) => !!roles),
+    map((roles) => roles.some((role) => allowedRoles.includes(role.name))),
+  );
 };

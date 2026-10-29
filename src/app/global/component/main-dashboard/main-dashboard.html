@@ -1,5 +1,10 @@
 <nav class="row p-2 m-0">
-  <div class="col-6">
+  <div class="col-6 d-flex align-items-center gap-2">
+    @if (isOnboarded()) {
+      <button mat-icon-button (click)="toggleDrawer()">
+        <mat-icon>{{ drawerOpen() ? 'menu_open' : 'menu' }}</mat-icon>
+      </button>
+    }
     <h3>Casa buna</h3>
   </div>
   <div class="col-6 d-flex flex-row-reverse">
@@ -10,16 +15,12 @@
 </nav>
 <mat-drawer-container>
   @if (isOnboarded()) {
-    <mat-drawer mode="side" opened>
-      <mat-nav-list>
-        <a mat-list-item href="" [routerLink]="'user-administration'" [routerLinkActive]="'active'">
-          Administratie
-        </a>
-      </mat-nav-list>
+    <mat-drawer #drawer class="h-100 p-3" mode="side" [opened]="drawerOpen()">
+      <app-nav-list />
     </mat-drawer>
   }
   <mat-drawer-content>
-    <div class="p-4">
+    <div class="h-100 p-4">
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-content>

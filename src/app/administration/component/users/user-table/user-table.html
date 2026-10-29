@@ -37,6 +37,7 @@
     [pageIndex]="usersPage.page.number"
     [pageSize]="usersPage.page.size"
     aria-label="Selecteaza pagina"
+    (page)="onPageChange($event)"
   >
   </mat-paginator>
 }

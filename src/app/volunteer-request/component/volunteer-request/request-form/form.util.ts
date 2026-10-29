@@ -1,6 +1,6 @@
 import { signal } from '@angular/core';
 import { FieldTree } from '@angular/forms/signals';
-import { NewVolunteerRequestModel } from '../../../api/volunteer-request-client.model';
+import { NewVolunteerRequestModel } from '../../../../global/model/volunteer-request.model';
 import { FormModel } from './form.model';
 
 export const createDefaultFormModelSignal = () =>

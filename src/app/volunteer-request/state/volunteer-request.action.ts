@@ -1,4 +1,4 @@
-import { NewVolunteerRequestModel } from '../api/volunteer-request-client.model';
+import { NewVolunteerRequestModel } from '../../global/model/volunteer-request.model';
 
 const VOLUNTEER_REQUEST_STATE = '[VolunteerRequestState]';
 

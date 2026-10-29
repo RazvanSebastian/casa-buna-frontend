@@ -1,4 +1,4 @@
-import { VolunteerRequestModel } from '../api/volunteer-request-client.model';
+import { VolunteerRequestModel } from '../../global/model/volunteer-request.model';
 
 export interface VolunteerRequestStateModel {
   request: VolunteerRequestModel | null;

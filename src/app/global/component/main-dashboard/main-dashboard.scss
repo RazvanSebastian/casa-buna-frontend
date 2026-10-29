@@ -8,14 +8,16 @@ mat-drawer-container {
   display: flex;
   flex-direction: column;
   height: 100% !important;
+  background: #f8fafc;
 }
 
 mat-drawer {
-  background-color: #fff4de;
+  background-color: #ffffff;
   color: black;
+  border-radius: 0 !important;
 }
 
 nav {
-  background-color: #fff4de;
-  color: black;
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
 }

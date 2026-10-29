@@ -1,3 +1,12 @@
+import { UserDetailsMode } from './user.model';
+
+export interface VolunteerRequestWithUserResponse extends VolunteerRequestModel {
+  id: number;
+  status: VolunteerRequestStatus;
+  requestor: UserDetailsMode;
+  approver: UserDetailsMode;
+}
+
 export interface VolunteerRequestModel extends VolunteerRequest {
   id: number;
   status: VolunteerRequestStatus;
@@ -7,7 +16,7 @@ export interface VolunteerRequestModel extends VolunteerRequest {
 export enum VolunteerRequestStatus {
   PENDING = 'PENDING',
   APPROVED = 'APPROVED',
-  DECLINED = 'DECLINED',
+  REJECTED = 'REJECTED',
 }
 
 export interface NewVolunteerRequestModel extends VolunteerRequest {}

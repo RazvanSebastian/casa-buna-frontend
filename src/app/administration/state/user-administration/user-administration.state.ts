@@ -1,11 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { Action, createSelector, State, StateContext } from '@ngxs/store';
 import { catchError, of, tap, throwError } from 'rxjs';
-import { PageModel } from '../../global/model/page.model';
-import { UserModel } from '../../global/model/user/user.model';
-import { NotificationService } from '../../global/notification/notification.service';
-import { UserStateAction } from '../../user/state/user.action';
-import { UserAdministrationClientService } from '../api/user-administration-client.service';
+import { PageModel } from '../../../global/model/page.model';
+import { UserModel } from '../../../global/model/user.model';
+import { NotificationService } from '../../../global/notification/notification.service';
+import { UserStateAction } from '../../../user/state/user.action';
+import { UserAdministrationClientService } from '../../api/user-administration-client.service';
 import { UserAdministrationStateAction } from './user-administration.action';
 import { UserAdministrationStateModel } from './user-administration.model';
 

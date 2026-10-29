@@ -1,22 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { Store } from '@ngxs/store';
-import { UserModel } from '../../../global/model/user/user.model';
-import { UserAdministrationStateAction } from '../../state/user-administration.action';
-import { UserAdministrationState } from '../../state/user-administration.state';
+import { UserModel } from '../../../../global/model/user.model';
+import { UserAdministrationStateAction } from '../../../state/user-administration/user-administration.action';
+import { UserAdministrationState } from '../../../state/user-administration/user-administration.state';
 import { DialogSetRolesComponent } from '../dialog-set-roles/dialog-set-roles';
 
 @Component({
   imports: [MatTableModule, MatPaginator, MatIconModule, MatButtonModule],
-  selector: 'app-dashboard',
-  styleUrl: './dashboard.scss',
-  templateUrl: './dashboard.html',
+  selector: 'app-user-table',
+  styleUrl: './user-table.scss',
+  templateUrl: './user-table.html',
 })
-export class DashboardComponent implements OnInit {
+export class UserTable {
   protected readonly displayedColumns: string[] = [
     'email',
     'firstName',
@@ -32,6 +32,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new UserAdministrationStateAction.GetAllUsers(1));
+  }
+
+  protected onPageChange(event: PageEvent) {
+    this.store.dispatch(new UserAdministrationStateAction.GetAllUsers(event.pageIndex));
   }
 
   protected openSetRolesDialog(element: UserModel) {

@@ -1,5 +1,8 @@
 @if (request(); as request) {
-  <app-request-preview [request]="request"></app-request-preview>
+  <div class="d-flex flex-column gap-2 align-items-center">
+    <h3>Ai deja o cerere de voluntariat în desfășurare</h3>
+    <app-request-preview [request]="request"></app-request-preview>
+  </div>
 } @else {
   <app-request-form></app-request-form>
 }

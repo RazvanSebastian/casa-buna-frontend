@@ -1,0 +1,18 @@
+<div class="d-flex flex-row gap-3">
+  <mat-form-field class="example-full-width">
+    <mat-label>Cauta dupa email</mat-label>
+    <input matInput [formField]="form.email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Cauta dupa status</mat-label>
+    <mat-select [formField]="form.status">
+      @for (status of statuses; track status) {
+        <mat-option [value]="status">{{ status }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button matFab extended (click)="onClickSearch()">
+    <mat-icon>search</mat-icon>
+    Cauta
+  </button>
+</div>

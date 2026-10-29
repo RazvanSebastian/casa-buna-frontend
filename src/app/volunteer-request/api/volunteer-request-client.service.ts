@@ -1,7 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, of, throwError } from 'rxjs';
-import { NewVolunteerRequestModel, VolunteerRequestModel } from './volunteer-request-client.model';
+import {
+  NewVolunteerRequestModel,
+  VolunteerRequestModel,
+} from '../../global/model/volunteer-request.model';
 
 @Injectable({
   providedIn: 'root',

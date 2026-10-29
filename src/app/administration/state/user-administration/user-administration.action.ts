@@ -1,4 +1,4 @@
-import { RoleModel } from '../../global/model/user/user.model';
+import { RoleModel } from '../../../global/model/user.model';
 
 const USER_STATE = '[UserState]';
 

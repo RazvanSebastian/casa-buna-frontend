@@ -1,0 +1,19 @@
+mat-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button.active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.nav-item-button {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.expand-icon {
+  margin-left: auto;
+}
