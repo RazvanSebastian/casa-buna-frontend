@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { NotificationStateAction } from '../../../notification/state/notificiation.action';
 
 @Component({
   imports: [],
@@ -6,4 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.scss',
   templateUrl: './home.html',
 })
-export class Home {}
+export class Home {
+  store = inject(Store);
+  test() {
+    this.store.dispatch(new NotificationStateAction.Test());
+  }
+}

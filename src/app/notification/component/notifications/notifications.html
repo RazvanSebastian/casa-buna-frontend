@@ -1,0 +1,39 @@
+<button
+  mat-icon-button
+  [matBadge]="preview()?.unreadCounter ?? 0"
+  [matMenuTriggerFor]="notificationsMenu"
+  #menuTrigger="matMenuTrigger"
+  aria-label="Notifications"
+>
+  <mat-icon>notifications</mat-icon>
+</button>
+
+<mat-menu #notificationsMenu="matMenu" panelClass="notification-menu-panel">
+  <div class="notification-preview">
+    <h2>Notificari</h2>
+    @if (preview(); as notifications) {
+      <mat-list>
+        @for (notification of notifications.latest; track notification.id) {
+          <button
+            mat-list-item
+            lines="2"
+            class="notification-item"
+            [class.unread]="!notification.read"
+            (click)="openNotification(notification, menuTrigger)"
+          >
+            <span matListItemTitle>{{ notification.title }}</span>
+            <span matListItemLine>{{ notification.createdAt | date: 'short' }}</span>
+          </button>
+        } @empty {
+          <p class="empty-state">Nu ai notificari</p>
+        }
+      </mat-list>
+      <button mat-menu-item routerLink="/notifications">
+        <span>View all</span>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    } @else {
+      <p class="empty-state">Incarcare...</p>
+    }
+  </div>
+</mat-menu>

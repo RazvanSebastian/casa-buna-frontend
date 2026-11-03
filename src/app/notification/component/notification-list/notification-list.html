@@ -1,0 +1,36 @@
+<section class="notification-list">
+  <h1>Notificari</h1>
+
+  @if (notifications(); as page) {
+    <mat-list>
+      @for (notification of page.content; track notification.id) {
+        <button
+          mat-list-item
+          lines="3"
+          [class.unread]="!notification.read"
+          (click)="openNotification(notification)"
+        >
+          <span matListItemTitle>{{ notification.title }}</span>
+          <span matListItemLine>{{ notification.message }}</span>
+          <span matListItemLine>{{ notification.createdAt | date: 'medium' }}</span>
+        </button>
+      } @empty {
+        <p class="empty-state">Nu ai notificari</p>
+      }
+    </mat-list>
+
+    @if (page.page.totalPages > 1) {
+      <mat-paginator
+        [length]="page.page.totalElements"
+        [pageIndex]="page.page.number"
+        [pageSize]="page.page.size"
+        [pageSizeOptions]="[page.page.size]"
+        [showFirstLastButtons]="true"
+        (page)="onPageChange($event)"
+        aria-label="Pagini notificari"
+      />
+    }
+  } @else {
+    <p>Incarcare...</p>
+  }
+</section>

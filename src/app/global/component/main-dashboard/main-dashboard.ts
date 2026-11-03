@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngxs/store';
+import { Notifications } from '../../../notification/component/notifications/notifications';
 import { UserStateAction } from '../../../user/state/user.action';
 import { UserState } from '../../../user/state/user.state';
 import { RoleName } from '../../model/user.model';
@@ -20,6 +21,7 @@ import { NavList } from './nav-list/nav-list';
     MatButtonModule,
     MatIconModule,
     NavList,
+    Notifications,
   ],
   selector: 'app-main-dashboard',
   styleUrl: './main-dashboard.scss',

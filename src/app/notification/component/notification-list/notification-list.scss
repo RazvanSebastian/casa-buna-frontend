@@ -1,0 +1,22 @@
+.notification-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.notification-list mat-list {
+  padding-top: 0;
+}
+
+.notification-list button[mat-list-item] {
+  width: 100%;
+}
+
+.notification-list button[mat-list-item].unread {
+  background: var(--mat-sys-primary-container);
+}
+
+.empty-state {
+  margin: 0;
+  padding: 16px;
+  color: var(--mat-sys-on-surface-variant);
+}
